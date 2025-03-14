@@ -9,4 +9,8 @@ public abstract class Vehicle implements Llogable {
     protected Roda roda;
     protected String etiquetaAmbiental;
 
+    @Override
+    public double calcularPreu(int dies) {
+        return 0;
+    }
 }
