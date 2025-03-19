@@ -42,4 +42,12 @@ public class Moto extends Vehicle {
         // Asignamos o imprimimos la etiqueta ambiental
         System.out.println("La etiqueta ambiental de la moto es: " + etiqueta);
     }
+    @Override
+    public double calcularPreu(int dies) {
+        double preu = super.calcularPreu(dies);
+        if (cilindrada > 500) {
+            preu += 5;  // Les motos amb més de 500cc tenen un extra
+        }
+        return preu;
+    }
 }
