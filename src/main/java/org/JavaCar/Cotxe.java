@@ -20,6 +20,6 @@ public class Cotxe extends Vehicle {
 
     // Mètode per calcular l'etiqueta ambiental
     public void calcularEtiquetaAmbiental() {
-        
+
     }
 }

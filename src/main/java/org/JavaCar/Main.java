@@ -10,24 +10,24 @@ public class Main {
 
     // Mètode per retornar els tipus de motors
     public static List<String> tiposMotor() {
-        List<String> tipos = new ArrayList<String>();
-        tipos.add("Gasolina Euro3");
-        tipos.add("Gasolina Euro4");
-        tipos.add("Gasolina Euro5");
-        tipos.add("Gasolina Euro6");
-        tipos.add("Diesel Euro4");
-        tipos.add("Diesel Euro5");
-        tipos.add("Diesel Euro6");
-        tipos.add("Híbrid endollable");
-        tipos.add("Elèctric híbrid endollable (PHEV)");
-        tipos.add("Híbrid no endollable (HEV)");
-        tipos.add("Elèctrics de bateria (BEV)");
-        tipos.add("Elèctrics d'autonomia estesa (REEV)");
-        tipos.add("Gas natural");
-        tipos.add("Gas natural comprimit (GNC)");
-        tipos.add("Gas liquat del petroli (GLP)");
-        tipos.add("Sense distinció");
-        return tipos;
+        List<String> tipus = new ArrayList<String>();
+        tipus.add("Gasolina Euro3");
+        tipus.add("Gasolina Euro4");
+        tipus.add("Gasolina Euro5");
+        tipus.add("Gasolina Euro6");
+        tipus.add("Diesel Euro4");
+        tipus.add("Diesel Euro5");
+        tipus.add("Diesel Euro6");
+        tipus.add("Híbrid endollable");
+        tipus.add("Elèctric híbrid endollable (PHEV)");
+        tipus.add("Híbrid no endollable (HEV)");
+        tipus.add("Elèctrics de bateria (BEV)");
+        tipus.add("Elèctrics d'autonomia estesa (REEV)");
+        tipus.add("Gas natural");
+        tipus.add("Gas natural comprimit (GNC)");
+        tipus.add("Gas liquat del petroli (GLP)");
+        tipus.add("Sense distinció");
+        return tipus;
     }
 
     public static int[] autonomia(){
