@@ -6,10 +6,10 @@ public abstract class Vehicle implements Llogable {
     protected String model;
     protected double preuBase;
     protected Motor motor;
-    protected Roda rodes;
+    protected Roda[] rodes;
     protected String etiquetaAmbiental;
 
-    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda rodes) {
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;
@@ -58,11 +58,11 @@ public abstract class Vehicle implements Llogable {
         this.motor = motor;
     }
 
-    public Roda getRodes() {
+    public Roda[] getRodes() {
         return rodes;
     }
 
-    public void setRodes(Roda rodes) {
+    public void setRodes(Roda[] rodes) {
         this.rodes = rodes;
     }
 
