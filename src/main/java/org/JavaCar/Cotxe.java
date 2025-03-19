@@ -34,7 +34,7 @@ public class Cotxe extends Vehicle {
         } else if (tipusMotor.contains("Híbrid endollable") || tipusMotor.contains("Elèctric híbrid endollable (PHEV)") ||
                 tipusMotor.contains("Híbrid no endollable (HEV)") || tipusMotor.contains("Gas natural") ||
                 tipusMotor.contains("Gas natural comprimit (GNC)") || tipusMotor.contains("Gas liquat del petroli (GLP)")) {
-            etiqueta = "ECO";   
+            etiqueta = "ECO";
         } else if (tipusMotor.contains("Elèctrics de bateria (BEV)") || tipusMotor.contains("Elèctrics d'autonomia estesa (REEV)") ||
                 tipusMotor.contains("Elèctrics híbrid endollable (PHEV)") && motor.getPotencia() >= 40) {
             etiqueta = "Zero emissions";
