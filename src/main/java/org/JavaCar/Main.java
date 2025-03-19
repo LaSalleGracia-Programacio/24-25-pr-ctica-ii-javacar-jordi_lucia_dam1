@@ -29,8 +29,4 @@ public class Main {
         tipus.add("Sense distinció");
         return tipus;
     }
-
-    public static int[] autonomia(){
-        return null;
-    }
 }
