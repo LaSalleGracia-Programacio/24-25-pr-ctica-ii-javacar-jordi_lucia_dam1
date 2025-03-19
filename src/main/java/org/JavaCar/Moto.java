@@ -44,10 +44,15 @@ public class Moto extends Vehicle {
     }
     @Override
     public double calcularPreu(int dies) {
-        double preu = super.calcularPreu(dies);
+        double preuBase = getPreuBase() * dies;
+        double taxaAddicional = 0;
+
+        // Aplica una taxa addicional si la cilindrada és superior a 500cc
         if (cilindrada > 500) {
-            preu += 5;  // Les motos amb més de 500cc tenen un extra
+            taxaAddicional = 5 * dies;  // Afegeix 5 per dia per a motos grans
         }
-        return preu;
+
+        // Retorna el preu total amb la taxa addicional
+        return preuBase + taxaAddicional;
     }
 }
