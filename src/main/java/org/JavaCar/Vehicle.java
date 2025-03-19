@@ -58,12 +58,12 @@ public abstract class Vehicle implements Llogable {
         this.motor = motor;
     }
 
-    public Roda getRoda() {
+    public Roda getRodes() {
         return rodes;
     }
 
-    public void setRoda(Roda roda) {
-        this.rodes = roda;
+    public void setRodes(Roda rodes) {
+        this.rodes = rodes;
     }
 
     public String getEtiquetaAmbiental() {
