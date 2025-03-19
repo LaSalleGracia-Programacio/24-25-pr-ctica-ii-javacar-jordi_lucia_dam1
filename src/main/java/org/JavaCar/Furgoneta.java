@@ -44,4 +44,20 @@ public class Furgoneta extends Vehicle {
         // Asignamos o imprimimos la etiqueta ambiental
         System.out.println("La etiqueta ambiental de la furgoneta es: " + etiqueta);
     }
+
+
+    @Override
+    public double calcularPreu(int dies) {
+        double preuBase = getPreuBase() * dies;  // Preu base sense modificacions
+        double taxaAddicional = 0;
+
+        // Aplica una taxa addicional si la capacitat de càrrega és superior a 1000kg
+        if (capacitatCarga > 1000) {
+            taxaAddicional = 10 * dies;  // Afegeix 10 per dia per a furgonetes grans
+        }
+
+        // Retorna el preu total amb la taxa addicional
+        return preuBase + taxaAddicional;
+    }
+
 }
