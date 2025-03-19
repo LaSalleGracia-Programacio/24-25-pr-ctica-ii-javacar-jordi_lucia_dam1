@@ -4,7 +4,7 @@ public class Cotxe extends Vehicle {
     private int nombrePlaces;
 
     // Constructor
-    public Cotxe(String matricula, String marca, String model, double preuBase, int nombrePlaces, Motor motor, Roda rodes) {
+    public Cotxe(String matricula, String marca, String model, double preuBase, int nombrePlaces, Motor motor, Roda[] rodes) {
         super(matricula, marca, model, preuBase, motor, rodes); // Cridem el constructor de la classe base
         this.nombrePlaces = nombrePlaces;
     }

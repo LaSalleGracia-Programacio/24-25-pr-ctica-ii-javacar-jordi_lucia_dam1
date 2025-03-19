@@ -4,7 +4,7 @@ public class Furgoneta extends Vehicle {
     private float capacitatCarga;
 
     // Constructor
-    public Furgoneta(String matricula, String marca, String model, double preuBase, float capacitatCarga, Motor motor, Roda rodes) {
+    public Furgoneta(String matricula, String marca, String model, double preuBase, float capacitatCarga, Motor motor, Roda[] rodes) {
         super(matricula, marca, model, preuBase, motor, rodes); // Llamamos al constructor de la clase base
         this.capacitatCarga = capacitatCarga;
     }

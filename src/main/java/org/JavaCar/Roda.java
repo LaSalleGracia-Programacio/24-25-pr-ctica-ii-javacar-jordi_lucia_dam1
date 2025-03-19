@@ -10,7 +10,6 @@ public class Roda {
         this.diametre = diametre;
     }
 
-
     public String getMarca() {
         return marca;
     }
@@ -18,7 +17,6 @@ public class Roda {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
 
     public float getDiametre() {
         return diametre;
