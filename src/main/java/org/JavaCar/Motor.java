@@ -2,9 +2,9 @@ package org.JavaCar;
 
 public class Motor {
     private String tipus;
-    private float potencia;
+    private int potencia;
 
-    public Motor(String tipus, float potencia) {
+    public Motor(String tipus, int potencia) {
         this.tipus = tipus;
         this.potencia = potencia;
     }
@@ -22,11 +22,11 @@ public class Motor {
         return "Motor: " + tipus;
     }
 
-    public float getPotencia() {
+    public int getPotencia() {
         return potencia;
     }
 
-    public void setPotencia(float potencia) {
+    public void setPotencia(int potencia) {
         this.potencia = potencia;
     }
 }
