@@ -23,6 +23,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "JUnit.FurgonetaTest.executor": "Run",
     "JUnit.LlogableGestorTest.executor": "Run",
     "JUnit.MotoTest.executor": "Run",
