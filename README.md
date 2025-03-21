@@ -53,7 +53,7 @@ git clone https://github.com/LaSalleGracia-Programacio/24-25-pr-ctica-ii-javacar
 
 ---
 
-## 🎯 Objetivos
-- Implementar una arquitectura orientada a objetos en Java.
-- Desarrollar un sistema de alquiler flexible y escalable.
-- Aplicar buenas prácticas en la gestión de proyectos con Git.
+## 🎯 Objectius
+- Implementar una arquitectura orientada a objectes en Java.
+- Desenvolupar un sistema de lloguer flexible i escalable.
+- Aplicar bones pràcticas en la gestió de proyectes amb Git.
