@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     private static List<Vehicle> vehicles = new ArrayList<>();
+    private static List<Vehicle> vehiculosAlquilados = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -46,7 +47,8 @@ public class Main {
                 System.out.println("1. Ver vehículos disponibles");
                 System.out.println("2. Ver características de un vehículo");
                 System.out.println("3. Alquilar un vehículo");
-                System.out.println("4. Volver al menú principal");
+                System.out.println("4. Ver vehículos alquilados");
+                System.out.println("5. Volver al menú principal");
                 System.out.print("Seleccione una opción: ");
 
                 int opcion = scanner.nextInt();
@@ -56,7 +58,8 @@ public class Main {
                     case 1 -> mostrarVehiculos();
                     case 2 -> mostrarDetallesVehiculo();
                     case 3 -> alquilarVehiculo();
-                    case 4 -> { return; }
+                    case 4 -> mostrarVehiculosAlquilados();
+                    case 5 -> { return; }
                     default -> System.out.println("Opción no válida.");
                 }
             } catch (InputMismatchException e) {
@@ -74,7 +77,8 @@ public class Main {
                 System.out.println("2. Ver características de un vehículo");
                 System.out.println("3. Agregar un nuevo vehículo");
                 System.out.println("4. Eliminar un vehículo");
-                System.out.println("5. Volver al menú principal");
+                System.out.println("5. Ver vehículos alquilados");
+                System.out.println("6. Volver al menú principal");
                 System.out.print("Seleccione una opción: ");
 
                 int opcion = scanner.nextInt();
@@ -83,9 +87,10 @@ public class Main {
                 switch (opcion) {
                     case 1 -> mostrarVehiculos();
                     case 2 -> mostrarDetallesVehiculo();
-                    case 3 -> agregarVehiculo();
+                    //case 3 -> agregarVehiculo();
                     case 4 -> eliminarVehiculo();
-                    case 5 -> { return; }
+                    case 5 -> mostrarVehiculosAlquilados();
+                    case 6 -> { return; }
                     default -> System.out.println("Opción no válida.");
                 }
             } catch (InputMismatchException e) {
@@ -106,6 +111,10 @@ public class Main {
     }
 
     private static void mostrarVehiculos() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No hay vehículos disponibles.");
+            return;
+        }
         System.out.println("\n--- Vehículos Disponibles ---");
         for (int i = 0; i < vehicles.size(); i++) {
             Vehicle v = vehicles.get(i);
@@ -133,6 +142,11 @@ public class Main {
     }
 
     private static void alquilarVehiculo() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No hay vehículos disponibles para alquilar.");
+            return;
+        }
+
         mostrarVehiculos();
         System.out.print("Seleccione el número del vehículo a alquilar: ");
 
@@ -149,11 +163,28 @@ public class Main {
         double precio = seleccionado.calcularPreu(dias);
         System.out.println("Precio total: " + precio + "€");
 
+        // Confirmación de alquiler
         System.out.print("¿Desea confirmar el alquiler? (S/N): ");
-        if (scanner.next().equalsIgnoreCase("S")) {
-            System.out.println("¡Alquiler confirmado!");
+        String confirmacion = scanner.next().trim().toUpperCase();
+
+        if (confirmacion.equals("S")) {
+            vehicles.remove(indice); // Eliminamos de la lista de disponibles
+            vehiculosAlquilados.add(seleccionado); // Agregamos a la lista de alquilados
+            System.out.println("¡Alquiler confirmado! Vehículo agregado a la lista de alquilados.");
         } else {
             System.out.println("Alquiler cancelado.");
+        }
+    }
+
+
+    private static void mostrarVehiculosAlquilados() {
+        if (vehiculosAlquilados.isEmpty()) {
+            System.out.println("No hay vehículos alquilados.");
+            return;
+        }
+        System.out.println("\n--- Vehículos Alquilados ---");
+        for (Vehicle v : vehiculosAlquilados) {
+            System.out.println(v.marca + " " + v.model + " - Matrícula: " + v.matricula);
         }
     }
 
@@ -173,22 +204,6 @@ public class Main {
         System.out.println("Vehículo eliminado: " + eliminado.marca + " " + eliminado.model + " (" + eliminado.matricula + ")");
     }
 
-    private static void agregarVehiculo() {
-        System.out.println("\n--- Agregar un Nuevo Vehículo ---");
-        System.out.print("Ingrese la matrícula: ");
-        String matricula = scanner.next();
-        System.out.print("Ingrese la marca: ");
-        String marca = scanner.next();
-        System.out.print("Ingrese el modelo: ");
-        String modelo = scanner.next();
-        System.out.print("Ingrese el precio base por día: ");
-        double precio = validarEntradaDouble();
-        if (precio == -1) return;
-
-        vehicles.add(new Cotxe(matricula, marca, modelo, precio, 5, new Motor("Gasolina", 120), new Roda[4]));
-        System.out.println("Vehículo agregado con éxito.");
-    }
-
     private static int validarSeleccion() {
         int seleccion = validarEntradaNumerica();
         return (seleccion > 0 && seleccion <= vehicles.size()) ? seleccion - 1 : -1;
@@ -197,16 +212,6 @@ public class Main {
     private static int validarEntradaNumerica() {
         try {
             return scanner.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Error: Ingrese un número válido.");
-            scanner.nextLine();
-            return -1;
-        }
-    }
-
-    private static double validarEntradaDouble() {
-        try {
-            return scanner.nextDouble();
         } catch (InputMismatchException e) {
             System.out.println("Error: Ingrese un número válido.");
             scanner.nextLine();
