@@ -200,26 +200,33 @@ public class Main {
         System.out.print("Ingrese el modelo: ");
         String modelo = scanner.next();
 
-        System.out.print("Ingrese el precio base por día: ");
-        double precio = validarEntradaDouble();
+        System.out.println("Ingrese el precio base por día: ");
+        double precio = validarEntradaNumerica();
         if (precio == -1) return;
+
+        System.out.print("Ingrese el tipo de motor de la siguiente lista: ");
+        Motor.printTipusMotors();
+        String tipus = scanner.next();
 
         System.out.print("Ingrese la potencia del motor (en CV): ");
         int potencia = validarEntradaNumerica();
         if (potencia == -1) return;
 
+        System.out.print("Ingrese la marca de las ruedas: ");
+        String marcaRuedas = scanner.next();
+
         System.out.print("Ingrese el diámetro de las ruedas (en pulgadas): ");
         int diametro = validarEntradaNumerica();
         if (diametro == -1) return;
 
-        Motor motor = new Motor("Gasolina", potencia);
-        Roda[] rodes = { new Roda("Michelin", diametro), new Roda("Michelin", diametro),
-                new Roda("Michelin", diametro), new Roda("Michelin", diametro) };
+        Motor motor = new Motor(tipus, potencia);
+        Roda[] rodes = { new Roda(marcaRuedas, diametro), new Roda(marcaRuedas, diametro),
+                new Roda(marcaRuedas, diametro), new Roda(marcaRuedas, diametro) };
 
         Vehicle nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, 5, motor, rodes);
         vehicles.add(nuevoVehiculo);
 
-        System.out.println("✅ Vehículo agregado con éxito.");
+        System.out.println("Vehículo agregado con éxito.");
     }
 
 
@@ -249,15 +256,6 @@ public class Main {
             return scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Error: Ingrese un número válido.");
-            scanner.nextLine();
-            return -1;
-        }
-    }
-    private static float validarEntradaDouble(){
-        try {
-            return scanner.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Error: Ingrese un número con decimal válido.");
             scanner.nextLine();
             return -1;
         }

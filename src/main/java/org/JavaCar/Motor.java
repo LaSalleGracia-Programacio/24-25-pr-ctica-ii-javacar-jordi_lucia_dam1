@@ -49,4 +49,11 @@ public class Motor {
     public static List<String> getTipusMotors() {
         return TIPUS_MOTORS;
     }
+
+    public static void printTipusMotors() {
+        for (String motor : TIPUS_MOTORS) {
+            System.out.println(motor);
+        }
+    }
+
 }
