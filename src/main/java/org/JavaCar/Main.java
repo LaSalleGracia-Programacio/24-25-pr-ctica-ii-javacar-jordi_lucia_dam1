@@ -87,7 +87,7 @@ public class Main {
                 switch (opcion) {
                     case 1 -> mostrarVehiculos();
                     case 2 -> mostrarDetallesVehiculo();
-                    //case 3 -> agregarVehiculo();
+                    case 3 -> agregarVehiculo();
                     case 4 -> eliminarVehiculo();
                     case 5 -> mostrarVehiculosAlquilados();
                     case 6 -> { return; }
@@ -188,6 +188,41 @@ public class Main {
         }
     }
 
+    private static void agregarVehiculo() {
+        System.out.println("\n--- Agregar un Nuevo Vehículo ---");
+
+        System.out.print("Ingrese la matrícula: ");
+        String matricula = scanner.next();
+
+        System.out.print("Ingrese la marca: ");
+        String marca = scanner.next();
+
+        System.out.print("Ingrese el modelo: ");
+        String modelo = scanner.next();
+
+        System.out.print("Ingrese el precio base por día: ");
+        double precio = validarEntradaDouble();
+        if (precio == -1) return;
+
+        System.out.print("Ingrese la potencia del motor (en CV): ");
+        int potencia = validarEntradaNumerica();
+        if (potencia == -1) return;
+
+        System.out.print("Ingrese el diámetro de las ruedas (en pulgadas): ");
+        int diametro = validarEntradaNumerica();
+        if (diametro == -1) return;
+
+        Motor motor = new Motor("Gasolina", potencia);
+        Roda[] rodes = { new Roda("Michelin", diametro), new Roda("Michelin", diametro),
+                new Roda("Michelin", diametro), new Roda("Michelin", diametro) };
+
+        Vehicle nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, 5, motor, rodes);
+        vehicles.add(nuevoVehiculo);
+
+        System.out.println("✅ Vehículo agregado con éxito.");
+    }
+
+
     private static void eliminarVehiculo() {
         if (vehicles.isEmpty()) {
             System.out.println("No hay vehículos disponibles para eliminar.");
@@ -214,6 +249,15 @@ public class Main {
             return scanner.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Error: Ingrese un número válido.");
+            scanner.nextLine();
+            return -1;
+        }
+    }
+    private static float validarEntradaDouble(){
+        try {
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Ingrese un número con decimal válido.");
             scanner.nextLine();
             return -1;
         }
