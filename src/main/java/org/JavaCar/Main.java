@@ -200,24 +200,33 @@ public class Main {
         System.out.print("Ingrese el modelo: ");
         String modelo = scanner.next();
 
-        System.out.println("Ingrese el precio base por día: ");
-        double precio = validarEntradaNumerica();
-        if (precio == -1) return;
+        double precio;
+        do {
+            System.out.println("Ingrese el precio base por día: ");
+            precio = validarEntradaNumerica();
+        }while (precio <= 0);
 
-        System.out.print("Ingrese el tipo de motor de la siguiente lista: ");
-        Motor.printTipusMotors();
-        String tipus = scanner.next();
+        String tipus;
+        do {
+            System.out.print("Ingrese el tipo de motor de la siguiente lista: ");
+            Motor.printTipusMotors();
+            tipus = scanner.next();
+        }while (!Motor.tipusValid(tipus));
 
-        System.out.print("Ingrese la potencia del motor (en CV): ");
-        int potencia = validarEntradaNumerica();
-        if (potencia == -1) return;
+        int potencia;
+        do {
+            System.out.print("Ingrese la potencia del motor (en CV): ");
+            potencia = validarEntradaNumerica();
+        }while (potencia <= 0);
 
         System.out.print("Ingrese la marca de las ruedas: ");
         String marcaRuedas = scanner.next();
 
-        System.out.print("Ingrese el diámetro de las ruedas (en pulgadas): ");
-        int diametro = validarEntradaNumerica();
-        if (diametro == -1) return;
+        int diametro;
+        do {
+            System.out.print("Ingrese el diámetro de las ruedas (en pulgadas): ");
+            diametro = validarEntradaNumerica();
+        }while (diametro <= 0);
 
         Motor motor = new Motor(tipus, potencia);
         Roda[] rodes = { new Roda(marcaRuedas, diametro), new Roda(marcaRuedas, diametro),
