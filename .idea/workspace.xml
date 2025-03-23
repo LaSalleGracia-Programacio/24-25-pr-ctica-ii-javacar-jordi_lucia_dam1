@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3e3b07c-e718-42c4-8848-1ef528c0898f" name="Changes" comment="" />
+    <list default="true" id="f3e3b07c-e718-42c4-8848-1ef528c0898f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/JavaCar/Motor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +35,7 @@
     "JUnit.VehicleTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "<unknown>",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,7 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1742381719861</updated>
       <workItem from="1742381727959" duration="6767000" />
-      <workItem from="1742395055480" duration="3950000" />
+      <workItem from="1742395055480" duration="8688000" />
+      <workItem from="1742752211038" duration="1638000" />
     </task>
     <servers />
   </component>

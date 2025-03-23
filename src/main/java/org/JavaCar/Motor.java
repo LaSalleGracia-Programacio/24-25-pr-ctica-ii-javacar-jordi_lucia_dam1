@@ -20,9 +20,6 @@ public class Motor {
     );
 
     public Motor(String tipus, int potencia) {
-        if (!TIPUS_MOTORS.contains(tipus)) {
-            throw new IllegalArgumentException("Tipus de motor no vàlid: " + tipus);
-        }
         this.tipus = tipus;
         this.potencia = potencia;
     }
@@ -54,6 +51,14 @@ public class Motor {
         for (String motor : TIPUS_MOTORS) {
             System.out.println(motor);
         }
+    }
+
+    public static boolean tipusValid(String tipus) {
+        if (!TIPUS_MOTORS.contains(tipus)) {
+            System.out.printf("Tipus de motor no vàlid: " + tipus);
+            return false;
+        }
+        return true;
     }
 
 }
