@@ -7,6 +7,8 @@
     <list default="true" id="f3e3b07c-e718-42c4-8848-1ef528c0898f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/JavaCar/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/JavaCar/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/JavaCar/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/JavaCar/Motor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/JavaCar/Motor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +66,7 @@
       <updated>1742381719861</updated>
       <workItem from="1742381727959" duration="6767000" />
       <workItem from="1742395055480" duration="8688000" />
-      <workItem from="1742752211038" duration="2035000" />
+      <workItem from="1742752211038" duration="2905000" />
     </task>
     <servers />
   </component>

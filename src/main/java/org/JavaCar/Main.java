@@ -191,6 +191,19 @@ public class Main {
     private static void agregarVehiculo() {
         System.out.println("\n--- Agregar un Nuevo Vehículo ---");
 
+        int opcion;
+        do {
+            System.out.println("Ingrese qué tipo de vehículo desea agregar ");
+            System.out.print("Coche (1) | Furgoneta (2) | Moto (3): ");
+            opcion = validarEntradaNumerica();
+        } while (opcion != 1 && opcion != 2 && opcion != 3);
+
+        int numRodes;
+        do {
+            System.out.print("Ingrese el número de ruedas del vehículo: ");
+            numRodes = validarEntradaNumerica();
+        } while (numRodes <= 0);
+
         System.out.print("Ingrese la matrícula: ");
         String matricula = scanner.next();
 
@@ -202,22 +215,23 @@ public class Main {
 
         double precio;
         do {
-            System.out.println("Ingrese el precio base por día: ");
+            System.out.print("Ingrese el precio base por día: ");
             precio = validarEntradaNumerica();
-        }while (precio <= 0);
+        } while (precio <= 0);
 
         String tipus;
         do {
-            System.out.print("Ingrese el tipo de motor de la siguiente lista: ");
+            System.out.println("Ingrese el tipo de motor de la siguiente lista: ");
             Motor.printTipusMotors();
-            tipus = scanner.next();
-        }while (!Motor.tipusValid(tipus));
+            scanner.nextLine();
+            tipus = scanner.nextLine();
+        } while (!Motor.tipusValid(tipus));
 
         int potencia;
         do {
             System.out.print("Ingrese la potencia del motor (en CV): ");
             potencia = validarEntradaNumerica();
-        }while (potencia <= 0);
+        } while (potencia <= 0);
 
         System.out.print("Ingrese la marca de las ruedas: ");
         String marcaRuedas = scanner.next();
@@ -226,17 +240,41 @@ public class Main {
         do {
             System.out.print("Ingrese el diámetro de las ruedas (en pulgadas): ");
             diametro = validarEntradaNumerica();
-        }while (diametro <= 0);
+        } while (diametro <= 0);
 
+        // Crear el array de ruedas con el tamaño adecuado según el tipo de vehículo
+        Roda[] rodes = new Roda[numRodes];
+        for (int i = 0; i < numRodes; i++) {
+            rodes[i] = new Roda(marcaRuedas, diametro);
+        }
+
+        // Crear el motor
         Motor motor = new Motor(tipus, potencia);
-        Roda[] rodes = { new Roda(marcaRuedas, diametro), new Roda(marcaRuedas, diametro),
-                new Roda(marcaRuedas, diametro), new Roda(marcaRuedas, diametro) };
 
-        Vehicle nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, 5, motor, rodes);
+        // Crear el vehículo según la opción seleccionada
+        Vehicle nuevoVehiculo;
+        switch (opcion) {
+            case 1:
+                nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, numRodes, motor, rodes);
+                break;
+            case 2:
+                nuevoVehiculo = new Furgoneta(matricula, marca, modelo, precio, numRodes, motor, rodes);
+                break;
+            case 3:
+                nuevoVehiculo = new Moto(matricula, marca, modelo, precio, numRodes, motor, rodes);
+                break;
+            default:
+                System.out.println("Error inesperado.");
+                return;
+        }
+
+        // Agregar el vehículo a la lista
         vehicles.add(nuevoVehiculo);
 
         System.out.println("Vehículo agregado con éxito.");
     }
+
+
 
 
     private static void eliminarVehiculo() {
