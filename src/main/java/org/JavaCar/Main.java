@@ -219,11 +219,12 @@ public class Main {
             precio = validarEntradaNumerica();
         } while (precio <= 0);
 
+        scanner.nextLine(); // Limpiar buffer antes de leer una línea de texto
+
         String tipus;
         do {
             System.out.println("Ingrese el tipo de motor de la siguiente lista: ");
             Motor.printTipusMotors();
-            scanner.nextLine();
             tipus = scanner.nextLine();
         } while (!Motor.tipusValid(tipus));
 
@@ -251,27 +252,48 @@ public class Main {
         // Crear el motor
         Motor motor = new Motor(tipus, potencia);
 
-        // Crear el vehículo según la opción seleccionada
-        Vehicle nuevoVehiculo;
+        // Crear el vehículo según la opción seleccionada y agregarlo a la lista
         switch (opcion) {
-            case 1:
-                nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, numRodes, motor, rodes);
+            case 1: { // Cotxe
+                int nombrePlaces;
+                do {
+                    System.out.print("Ingrese el número de plazas del coche: ");
+                    nombrePlaces = validarEntradaNumerica();
+                } while (nombrePlaces <= 0);
+
+                Vehicle nuevoVehiculo = new Cotxe(matricula, marca, modelo, precio, nombrePlaces, motor, rodes);
+                vehicles.add(nuevoVehiculo);
+                System.out.println("Coche agregado con éxito.");
                 break;
-            case 2:
-                nuevoVehiculo = new Furgoneta(matricula, marca, modelo, precio, numRodes, motor, rodes);
+            }
+            case 2: { // Furgoneta
+                float capacitatCarga;
+                do {
+                    System.out.print("Ingrese la capacidad de carga de la furgoneta (en kg): ");
+                    capacitatCarga = validarEntradaNumerica();
+                } while (capacitatCarga <= 0);
+
+                Vehicle nuevoVehiculo = new Furgoneta(matricula, marca, modelo, precio, capacitatCarga, motor, rodes);
+                vehicles.add(nuevoVehiculo);
+                System.out.println("Furgoneta agregada con éxito.");
                 break;
-            case 3:
-                nuevoVehiculo = new Moto(matricula, marca, modelo, precio, numRodes, motor, rodes);
+            }
+            case 3: { // Moto
+                int cilindrada;
+                do {
+                    System.out.print("Ingrese la cilindrada de la moto (en cc): ");
+                    cilindrada = validarEntradaNumerica();
+                } while (cilindrada <= 0);
+
+                Vehicle nuevoVehiculo = new Moto(matricula, marca, modelo, precio, cilindrada, motor, rodes);
+                vehicles.add(nuevoVehiculo);
+                System.out.println("Moto agregada con éxito.");
                 break;
+            }
             default:
                 System.out.println("Error inesperado.");
-                return;
+                break;
         }
-
-        // Agregar el vehículo a la lista
-        vehicles.add(nuevoVehiculo);
-
-        System.out.println("Vehículo agregado con éxito.");
     }
 
 
